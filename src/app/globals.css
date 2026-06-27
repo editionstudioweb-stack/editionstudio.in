@@ -1,0 +1,356 @@
+/* Fonts loaded via next/font in layout.jsx — no @import needed */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #050505;
+  color: #FFFFFF;
+  font-family: 'Inter', sans-serif;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #050505;
+}
+::-webkit-scrollbar-thumb {
+  background: #333;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #AAFF00;
+}
+
+/* Noise overlay */
+.noise-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.035;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 200px 200px;
+}
+
+/* Section padding */
+.section-pad {
+  padding: 80px 0;
+}
+
+@media (max-width: 768px) {
+  .section-pad {
+    padding: 60px 0;
+  }
+}
+
+/* Gold gradient text */
+.gold-gradient {
+  background: linear-gradient(135deg, #D4B483 0%, #F5DCA3 50%, #D4B483 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Marquee track */
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee 30s linear infinite;
+}
+
+.marquee-track-reverse {
+  display: flex;
+  width: max-content;
+  animation: marquee-reverse 30s linear infinite;
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes marquee-reverse {
+  0% { transform: translateX(-50%); }
+  100% { transform: translateX(0); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-14px); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 20px rgba(170,255,0,0.3), 0 0 60px rgba(170,255,0,0.1); }
+  50% { box-shadow: 0 0 50px rgba(170,255,0,0.6), 0 0 120px rgba(170,255,0,0.25); }
+}
+
+/* Testimonials grid background */
+.testimonials-grid-bg {
+  background-image: linear-gradient(to right, rgba(255,255,255,.08) 1px, transparent 1px);
+  background-size: 180px 100%;
+}
+
+/* Pause on hover */
+.marquee-container:hover .marquee-track,
+.marquee-container:hover .marquee-track-reverse {
+  animation-play-state: paused;
+}
+
+/* Video card */
+.video-card video {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+/* Grain overlay */
+.grain {
+  position: relative;
+}
+
+.grain::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  opacity: 0.04;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Hide scrollbar for carousels */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Button base — matches editionstudio.in exactly */
+
+/* Primary CTA — matches "Explore Services" on original site */
+/* white-to-lime radial gradient, near-black text, pill shape */
+.btn-gold {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 13px 28px;
+  background: radial-gradient(127.9% 258% at -40.3% 0%, rgb(255,255,255) 39.3%, rgb(154,205,21) 62.1%, rgb(154,205,21) 100%);
+  border: none;
+  border-radius: 103px;
+  color: rgb(13,13,13);
+  font-family: 'Syne', sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 19.2px;
+  letter-spacing: normal;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  cursor: pointer;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.btn-gold:hover {
+  transform: scale(1.04);
+  box-shadow: 0 4px 28px rgba(154,205,21,0.45);
+}
+
+/* Secondary CTA — matches "Let's Collaborate" on original site */
+/* lime gradient, white border, white text, pill shape */
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 13px 28px;
+  background: radial-gradient(50% 50% at 4.7% 0%, rgb(154,205,21) 0%, rgb(151,199,30) 100%);
+  border: 1px solid rgb(255,255,255);
+  border-radius: 54px;
+  color: rgb(255,255,255);
+  font-family: 'Syne', sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 19.2px;
+  letter-spacing: normal;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  cursor: pointer;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.btn-outline:hover {
+  transform: scale(1.04);
+  box-shadow: 0 4px 22px rgba(154,205,21,0.35);
+}
+
+/* Animate utility classes (Tailwind v4 config may not auto-generate these) */
+.animate-pulse-glow {
+  animation: pulse-glow 3s ease-in-out infinite;
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-float-delayed {
+  animation: float 6s ease-in-out 2s infinite;
+}
+
+/* Tracking utilities */
+.tracking-widest2 {
+  letter-spacing: 0.15em;
+}
+
+.tracking-widest3 {
+  letter-spacing: 0.25em;
+}
+
+.text-accent-gold {
+  color: #D4B483;
+}
+
+/* Lime accent */
+.text-accent-lime {
+  color: #AAFF00;
+}
+
+.bg-accent-lime {
+  background-color: #AAFF00;
+}
+
+/* Responsive image fill */
+img {
+  max-width: 100%;
+}
+
+/* Focus ring */
+:focus-visible {
+  outline: 2px solid #D4B483;
+  outline-offset: 3px;
+}
+
+/* =============================================
+   Testimonials Carousel
+   ============================================= */
+
+.t-section {
+  padding: 80px 0 100px;
+  background: #0B0B0B;
+  overflow: hidden;
+}
+
+@media (max-width: 768px) {
+  .t-section {
+    padding: 60px 0 80px;
+  }
+}
+
+.t-header {
+  text-align: center;
+  margin-bottom: 60px;
+  padding: 0 24px;
+}
+
+.t-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(1.5rem, 3.5vw, 2.5rem);
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+/* Row wrapper — section clips overflow; padding gives edge breathing room */
+.t-row-container {
+  overflow: visible;
+  width: 100%;
+  padding: 22px 5vw;
+}
+
+/* Animated track — 88px gap absorbs 52.5px per-side expansion of center card at 1.247× scale */
+.t-track {
+  display: flex;
+  width: max-content;
+  gap: 88px;
+  padding: 20px 0;
+  will-change: transform;
+}
+
+/* Individual card — 425px base; scales to ~530px at center. min-height 195px → ~243px at center */
+.t-card {
+  flex-shrink: 0;
+  width: 425px;
+  min-height: 195px;
+  /* Gradient dark card background */
+  background: linear-gradient(
+    145deg,
+    rgba(42, 42, 42, 0.72) 0%,
+    rgba(10, 10, 10, 0.92) 100%
+  );
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 18px;
+  padding: 30px; /* equal on all sides */
+  transform-origin: center center;
+  will-change: transform, opacity;
+  transition: transform 0.07s linear, opacity 0.07s linear;
+}
+
+/* Dynamic spacer at top of card — height set via JS: 35px at sides → 45px at center */
+.t-spacer {
+  flex-shrink: 0;
+  width: 100%;
+  height: 35px; /* JS overrides this per-frame */
+}
+
+/* Review text — white, font-size set via JS (14.5px sides → 17px center) */
+.t-text {
+  font-family: 'Inter', sans-serif;
+  font-size: 14.5px; /* JS overrides per frame */
+  line-height: 1.65;
+  color: #ffffff;
+}
+
+/* Font Awesome quote icon — between text and author name */
+.t-quote-icon {
+  font-size: 22px;
+  line-height: 1;
+  color: rgba(255, 255, 255, 0.45);
+  margin-top: 14px;
+  margin-bottom: 14px;
+  user-select: none;
+}
+
+/* Author name — muted white */
+.t-author {
+  display: block;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  color: rgba(255, 255, 255, 0.45);
+  text-transform: uppercase;
+}
