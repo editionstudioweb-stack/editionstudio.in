@@ -1,4 +1,4 @@
-import { Montserrat, Inter } from 'next/font/google';
+import { Montserrat, Inter, Syne, Albert_Sans } from 'next/font/google';
 import './globals.css';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
@@ -13,8 +13,22 @@ const montserrat = Montserrat({
 
 const inter = Inter({
   subsets: ['latin'],
-  weight: ['400', '500', '600'],
+  weight: ['300', '400', '500', '600', '700'],
   variable: '--font-inter',
+  display: 'swap',
+});
+
+const syne = Syne({
+  subsets: ['latin'],
+  weight: ['400', '500', '600', '700'],
+  variable: '--font-syne',
+  display: 'swap',
+});
+
+const albertSans = Albert_Sans({
+  subsets: ['latin'],
+  weight: ['400', '500'],
+  variable: '--font-albert-sans',
   display: 'swap',
 });
 
@@ -43,7 +57,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en" data-scroll-behavior="smooth">
-      <body className={`${montserrat.variable} ${inter.variable} font-inter bg-bg-primary text-white antialiased`}>
+      <body className={`${montserrat.variable} ${inter.variable} ${syne.variable} ${albertSans.variable} font-inter bg-bg-primary text-white antialiased`}>
         {/* Noise overlay */}
         <div className="noise-overlay" aria-hidden="true" />
         <Navbar />

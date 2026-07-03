@@ -11,7 +11,7 @@ function TestimonialCard({ testimonial }) {
   return (
     <div className="shrink-0 rounded-3xl border border-white/10 bg-gradient-to-r from-white/[0.06] via-white/[0.03] to-transparent backdrop-blur-sm p-6 md:p-8 flex flex-col justify-between"
       style={{ width: 'clamp(280px, 40vw, 520px)', height: 'clamp(180px, 20vw, 270px)' }}>
-      <p className="font-inter font-light text-white tracking-[-1.44px]" style={{ fontSize: 'clamp(16px, 2.5vw, 20px)', lineHeight: 1.3 }}>
+      <p className="font-inter font-light text-white tracking-[1px]" style={{ fontSize: 'clamp(16px, 2.5vw, 20px)', lineHeight: 1.3 }}>
         &ldquo;{testimonial.text}&rdquo;
       </p>
 
@@ -28,7 +28,7 @@ function TestimonialCard({ testimonial }) {
 
 export default function TestimonialsCarousel() {
   return (
-    <section className="relative overflow-hidden bg-bg-secondary py-28">
+    <section className="relative overflow-hidden bg-bg-secondary py-16 md:py-28">
 
       {/* Background Grid */}
       <div className="absolute inset-0 opacity-20 pointer-events-none testimonials-grid-bg" />
@@ -36,7 +36,7 @@ export default function TestimonialsCarousel() {
       <div className="relative z-10">
 
         {/* Heading */}
-        <div className="text-center mb-20">
+        <div className="text-center mb-10 md:mb-20">
           <h2 className="font-syne text-white uppercase" style={{ fontSize: 'clamp(20px, 4vw, 38.88px)', lineHeight: 1.3, letterSpacing: '-1.5552px' }}>
             CLIENT SUCCESS STORIES &amp; FEEDBACK
           </h2>

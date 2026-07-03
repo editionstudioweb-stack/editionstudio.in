@@ -84,7 +84,7 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <p className="block font-inter font-medium uppercase mb-1" style={{ fontSize: '12px', lineHeight: '14.4px', letterSpacing: 'normal' }}>Business Hours</p>
-                    <p className="font-inter font-light text-white text-[17px] leading-[25.5px] tracking-[-0.34px]">Monday – Thursday</p>
+                    <p className="font-inter font-light text-white text-[17px] leading-[25.5px] tracking-[-0.34px]">Monday – Saturday</p>
                     <p className="font-inter font-light text-white text-[17px] leading-[25.5px] tracking-[-0.34px]">9:00 AM – 5:00 PM</p>
                   </div>
                 </div>
@@ -95,8 +95,8 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <p className="block font-inter font-medium uppercase mb-1" style={{ fontSize: '12px', lineHeight: '14.4px', letterSpacing: 'normal' }}>Email</p>
-                    <a href="mailto:editingeditionstudio@gmail.com" className="font-inter font-light text-white text-[17px] leading-[25.5px] tracking-[-0.34px] hover:text-accent-gold transition-colors break-all">
-                      editingeditionstudio@gmail.com
+                    <a href="mailto:work@editionstudio.in" className="font-inter font-light text-white text-[17px] leading-[25.5px] tracking-[-0.34px] hover:text-accent-gold transition-colors break-all">
+                      work@editionstudio.in
                     </a>
                   </div>
                 </div>

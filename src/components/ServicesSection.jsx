@@ -62,7 +62,7 @@ export default function ServicesSection() {
 
             {/* Tags */}
             <div>
-              <p className="font-syne font-semibold tracking-[-2.6px] text-text-muted mb-4" style={{ fontSize: 'clamp(28px, 5vw, 52px)', lineHeight: 1.2 }}>
+              <p className="font-syne font-semibold tracking-[1px] text-text-muted mb-4" style={{ fontSize: 'clamp(28px, 5vw, 52px)', lineHeight: 1.2 }}>
                 Type of Editing
               </p>
               <div className="flex flex-wrap gap-3">
@@ -92,8 +92,8 @@ export default function ServicesSection() {
               transition={{ duration: 0.6, delay: i * 0.1 }}
             >
               <div className="text-3xl mb-4">{step.icon}</div>
-              <h4 className="font-syne font-medium text-white tracking-[-1.5px] mb-3" style={{ fontSize: 'clamp(20px, 3vw, 30px)', lineHeight: 1.4 }}>{step.title}</h4>
-              <p className="font-albert-sans text-text-muted text-[15px] md:text-[18px] font-normal leading-[1.5] tracking-[-1px]">{step.desc}</p>
+              <h4 className="font-syne font-medium text-white tracking-[1px] mb-3" style={{ fontSize: 'clamp(20px, 3vw, 25px)', lineHeight: 1.4 }}>{step.title}</h4>
+              <p className="font-albert-sans text-text-muted text-[15px] md:text-[18px] font-normal leading-[1.5] tracking-[0.1px]">{step.desc}</p>
             </motion.div>
           ))}
         </div>

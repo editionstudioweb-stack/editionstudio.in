@@ -1,6 +1,7 @@
 'use client';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
+import LightRays from './LightRays';
 
 /* ─── Service card data ─────────────────────────────────────────── */
 const serviceCards = [
@@ -320,6 +321,31 @@ export default function HeroSection() {
         }}
       />
 
+      {/* ── Light Rays Background ── */}
+      <div
+        style={{
+          position: 'absolute',
+          inset: 0,
+          width: '100%',
+          height: '100%',
+          pointerEvents: 'none',
+          zIndex: 1,
+        }}
+      >
+        <LightRays
+          raysOrigin="top-center"
+          raysColor="#AAFF00"
+          raysSpeed={1.5}
+          lightSpread={0.8}
+          rayLength={1.2}
+          pulsating={true}
+          followMouse={true}
+          mouseInfluence={0.1}
+          noiseAmount={0.05}
+          distortion={0.05}
+        />
+      </div>
+
       {/* ── Bottom-left: impact tagline ── */}
       <motion.div
         className="hidden md:flex"
@@ -502,19 +528,22 @@ export default function HeroSection() {
           {['Video Editing', 'Production', 'Scriptwriting', 'Social Media Growth'].map((item, i) => (
             <span key={item} style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
               {item}
-              {i < 3 && <span style={{ color: 'rgba(255,255,255,0.22)' }}>•</span>}
+              {i < 3 && (
+                <span
+                  className="hidden sm:inline"
+                  style={{ color: 'rgba(255,255,255,0.22)' }}
+                >
+                  •
+                </span>
+              )}
             </span>
           ))}
         </motion.p>
 
         {/* CTA buttons */}
         <motion.div
+          className="flex flex-col sm:flex-row items-center justify-center gap-[14px] w-full max-w-[280px] sm:max-w-none mx-auto"
           style={{
-            display: 'flex',
-            flexWrap: 'wrap',
-            alignItems: 'center',
-            justifyContent: 'center',
-            gap: '14px',
             marginBottom: '40px',
           }}
           initial={{ opacity: 0, y: 16 }}
@@ -524,6 +553,7 @@ export default function HeroSection() {
           <Link
             href="/contact"
             id="hero-cta-project"
+            className="w-full sm:w-auto justify-center"
             style={{
               display: 'inline-flex',
               alignItems: 'center',
@@ -557,6 +587,7 @@ export default function HeroSection() {
 
           <button
             id="hero-cta-reel"
+            className="w-full sm:w-auto justify-center"
             style={{
               display: 'inline-flex',
               alignItems: 'center',
@@ -620,7 +651,6 @@ export default function HeroSection() {
           zIndex: 20,
           borderTop: '1px solid rgba(255,255,255,0.05)',
           padding: '14px 0',
-          display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
           gap: '24px',

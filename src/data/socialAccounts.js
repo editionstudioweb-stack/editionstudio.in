@@ -73,10 +73,5 @@ export const industryVideos = [
   { label: "Automobile", video: "https://res.cloudinary.com/dsmuedwc4/video/upload/q_auto/f_auto/v1779786229/edit5_p3ayl9.mp4" },
   { label: "Healthcare", video: "https://res.cloudinary.com/dsmuedwc4/video/upload/q_auto/f_auto/v1779786191/edit2_wxx3h4.mp4" },
   { label: "Fashion", video: "https://res.cloudinary.com/dsmuedwc4/video/upload/q_auto/f_auto/v1779786133/edit1_jytodb.mp4" },
-  { label: "Industry", video: "https://res.cloudinary.com/dsmuedwc4/video/upload/q_auto/f_auto/v1780660336/2_1_jpbugp.mp4" },
   { label: "Lifestyle", video: "https://res.cloudinary.com/dsmuedwc4/video/upload/q_auto/f_auto/v1780660796/3_hy2xpn.mp4" },
-  { label: "Real Estate", video: "https://res.cloudinary.com/dsmuedwc4/video/upload/q_auto/f_auto/v1780661878/4_vqqr6k.mp4" },
-  { label: "Travel", video: "https://res.cloudinary.com/dsmuedwc4/video/upload/q_auto/f_auto/v1780664948/6_knzywf.mp4" },
-  { label: "Food", video: "https://res.cloudinary.com/dsmuedwc4/video/upload/q_auto/f_auto/v1780987241/9_fyvq2d.mp4" },
-  { label: "AI", video: "https://res.cloudinary.com/dsmuedwc4/video/upload/q_auto/f_auto/v1782114464/Editor_Is_God_The_War_..War_Between_Ai_And_Human._ai_human_world_editor_editing_pgyfog.mp4" },
 ];

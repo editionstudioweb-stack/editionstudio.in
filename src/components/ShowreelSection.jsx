@@ -1,12 +1,15 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const SHOWREEL_URL = "https://res.cloudinary.com/dsmuedwc4/video/upload/q_auto/f_auto/v1779787415/edit9_nnuwtd.mp4";
+const SHOWREEL_POSTER = "https://res.cloudinary.com/dsmuedwc4/video/upload/f_auto,q_auto,w_800,c_fill,so_0/v1779787415/edit9_nnuwtd.jpg";
 
 export default function ShowreelSection() {
   const containerRef = useRef(null);
   const textRef = useRef(null);
+  const videoRef = useRef(null);
+  const [shouldLoad, setShouldLoad] = useState(false);
 
   useEffect(() => {
     let rafId;
@@ -46,6 +49,45 @@ export default function ShowreelSection() {
     };
   }, []);
 
+  // Lazy-load video only when section is near viewport
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setShouldLoad(true);
+          observer.disconnect();
+        }
+      },
+      { rootMargin: '200px' }
+    );
+
+    observer.observe(video);
+    return () => observer.disconnect();
+  }, []);
+
+  // Auto-play once loaded and visible
+  useEffect(() => {
+    if (!shouldLoad || !videoRef.current) return;
+    const video = videoRef.current;
+
+    const playObserver = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          video.play().catch(() => {});
+        } else {
+          video.pause();
+        }
+      },
+      { threshold: 0.25 }
+    );
+
+    playObserver.observe(video);
+    return () => playObserver.disconnect();
+  }, [shouldLoad]);
+
   return (
     <section
       id="showreel-section"
@@ -84,12 +126,14 @@ export default function ShowreelSection() {
       <div className="relative w-full z-20">
         <div className="aspect-video w-full overflow-hidden">
           <video
-            src={SHOWREEL_URL}
-            autoPlay
+            ref={videoRef}
+            src={shouldLoad ? SHOWREEL_URL : undefined}
+            poster={SHOWREEL_POSTER}
+            autoPlay={false}
             muted
             loop
             playsInline
-            preload="auto"
+            preload="none"
             className="w-full h-full object-cover block"
           />
         </div>

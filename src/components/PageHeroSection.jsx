@@ -84,13 +84,13 @@ export default function PageHeroSection({ bgImage, title, subtitle }) {
             className="absolute top-0 left-0 w-full bg-white origin-top"
             initial={{ scaleY: 0, y: "0%" }}
             animate={{
-              scaleY: [0, 1, 1, 0], // पहले बढ़ेगा, फिर पूरा रहेगा, फिर नीचे सिकुड़ेगा
-              y: ["0%", "0%", "100%", "100%"], // मोमेंटम को नीचे शिफ्ट करने के लिए
+              scaleY: [0, 1, 1, 0], 
+              y: ["0%", "0%", "100%", "100%"], 
             }}
             transition={{
-              duration: 2, // एनीमेशन की स्पीड
-              repeat: Infinity, // लगातार लूप चलेगा
-              ease: [0.6, 0.01, 0.3, 0.99], // स्मूथ सिनेमैटिक इफ़ेक्ट के लिए custom cubic-bezier
+              duration: 2, 
+              repeat: Infinity, 
+              ease: [0.6, 0.01, 0.3, 0.99], 
             }}
             style={{ height: "100%" }}
           />

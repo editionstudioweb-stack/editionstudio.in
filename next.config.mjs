@@ -5,11 +5,12 @@ const nextConfig = {
   cacheComponents: true,
   experimental: {
     instantNavigationDevToolsToggle: true,
+    optimizePackageImports: ['framer-motion', 'lucide-react', 'react-icons'],
   },
-
 
   images: {
     formats: ['image/avif', 'image/webp'],
+    minimumCacheTTL: 31536000, // 1 year — Cloudinary URLs are content-hashed
     remotePatterns: [
       {
         protocol: 'https',
@@ -38,8 +39,15 @@ const nextConfig = {
           { key: 'Cache-Control', value: 'public, max-age=31536000, immutable' },
         ],
       },
+      {
+        source: '/(.*)\\.(js|css)',
+        headers: [
+          { key: 'Cache-Control', value: 'public, max-age=31536000, immutable' },
+        ],
+      },
     ];
   },
 };
 
 export default nextConfig;
+

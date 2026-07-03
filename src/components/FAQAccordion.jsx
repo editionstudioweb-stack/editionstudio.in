@@ -41,7 +41,7 @@ export default function FAQAccordion() {
                 onClick={() => toggle(faq.id)}
                 aria-expanded={openId === faq.id}
               >
-                <span className="font-syne font-medium text-white text-[18px] leading-[27px] tracking-[-0.9px] pr-4 group-hover:opacity-60 transition-opacity">
+                <span className="font-syne text-white text-[20px] leading-[27px] tracking-[1px] pr-4 group-hover:opacity-60 transition-opacity">
                   {faq.question}
                 </span>
                 <span className="flex-shrink-0 w-8 h-8 rounded-full border border-white flex items-center justify-center text-white group-hover:border-accent-lime group-hover:text-accent-lime transition-all">

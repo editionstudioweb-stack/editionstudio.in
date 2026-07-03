@@ -54,10 +54,6 @@ export default function Footer() {
                 <a href="mailto:work@editionstudio.in" className="font-inter font-light text-text-muted hover:text-accent-gold transition-colors break-all" style={{ fontSize: 'clamp(13px, 1.4vw, 18px)', lineHeight: '27px', letterSpacing: '-0.36px' }}>
                   work@editionstudio.in
                 </a>
-                <span className="text-text-muted" style={{ fontSize: 'clamp(13px, 1.4vw, 18px)' }}> / </span>
-                <a href="mailto:editingeditionstudio@gmail.com" className="font-inter font-light text-text-muted hover:text-accent-gold transition-colors break-all" style={{ fontSize: 'clamp(13px, 1.4vw, 18px)', lineHeight: '27px', letterSpacing: '-0.36px' }}>
-                  editingeditionstudio@gmail.com
-                </a>
               </p>
               <p>
                 <span className="block font-inter font-normal text-white/50 mb-1" style={{ fontSize: 'clamp(14px, 1.5vw, 18px)', lineHeight: '27px', letterSpacing: '-0.36px' }}>Phone</span>
@@ -65,7 +61,7 @@ export default function Footer() {
               </p>
               <p>
                 <span className="block font-inter font-normal text-white/50 mb-1" style={{ fontSize: 'clamp(14px, 1.5vw, 18px)', lineHeight: '27px', letterSpacing: '-0.36px' }}>Business Hours</span>
-                <span className="font-inter font-light text-text-muted" style={{ fontSize: 'clamp(13px, 1.4vw, 18px)', lineHeight: '27px', letterSpacing: '-0.36px' }}>Sunday – Thursday: 9am to 5pm</span>
+                <span className="font-inter font-light text-text-muted" style={{ fontSize: 'clamp(13px, 1.4vw, 18px)', lineHeight: '27px', letterSpacing: '-0.36px' }}>Monday – Saturday: 9am to 5pm</span>
               </p>
             </div>
             <div className="mt-auto">
@@ -92,9 +88,9 @@ export default function Footer() {
 
           {/* Right — Quick Links, two explicit columns, no heading */}
           <div className="flex flex-col h-full">
-            <div className="flex gap-x-16 flex-1">
+            <div className="flex flex-wrap gap-x-12 gap-y-4 flex-1">
               {/* Column 1: Home → Contact (top-aligned) */}
-              <ul className="flex flex-col h-full justify-between">
+              <ul className="flex flex-col gap-1">
                 {quickLinksCol1.map((link) => (
                   <li key={link.label}>
                     <Link
@@ -107,8 +103,8 @@ export default function Footer() {
                   </li>
                 ))}
               </ul>
-              {/* Column 2: Privacy Policy — pushed to bottom to match original site */}
-              <ul className="flex flex-col h-full">
+              {/* Column 2: Privacy Policy */}
+              <ul className="flex flex-col">
                 <li>
                   <Link
                     href="#"

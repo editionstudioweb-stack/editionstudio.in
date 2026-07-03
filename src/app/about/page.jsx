@@ -74,7 +74,7 @@ export default function AboutPage() {
                     />
                 </div>
                 <div className="w-full md:w-1/2">
-                  <p className="font-inter text-text-muted text-[15px] font-medium leading-[19.5px] tracking-[-0.15px]">{block.text}</p>
+                  <p className="font-inter text-white text-[20px] leading-[25px] tracking-[0.1px]">{block.text}</p>
                 </div>
               </div>
             ))}
@@ -175,7 +175,7 @@ export default function AboutPage() {
 
                 {/* Description */}
                 <p
-                  className="font-inter text-[#8a8a8a] text-[14px] font-light"
+                  className="font-inter text-[#8a8a8a] text-[20px] font-light"
                   style={{
                     lineHeight: "22px",
                   }}

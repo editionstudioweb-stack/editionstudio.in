@@ -6,7 +6,7 @@ import { socialAccounts } from '@/data/socialAccounts';
 
 /* ─── Data ─────────────────────────────────────────────── */
 const instagramAccounts = socialAccounts.filter(a => a.platform === 'Instagram');
-const youtubeAccounts   = socialAccounts.filter(a => a.platform === 'YouTube');
+const youtubeAccounts = socialAccounts.filter(a => a.platform === 'YouTube');
 
 const portfolioImages = [
   'https://res.cloudinary.com/dsmuedwc4/image/upload/q_auto/f_auto/v1781097644/gqxswc9djex5ps2d9mc6nefa_vyq6hs.png',
@@ -25,8 +25,8 @@ const cardStyle = {
 /* ─── Slide animation variants ──────────────────────────── */
 const slideVariants = {
   enter: (dir) => ({ x: dir > 0 ? '100%' : '-100%', opacity: 0 }),
-  center:        ({ x: 0, opacity: 1 }),
-  exit:  (dir) => ({ x: dir > 0 ? '-100%' : '100%', opacity: 0 }),
+  center: ({ x: 0, opacity: 1 }),
+  exit: (dir) => ({ x: dir > 0 ? '-100%' : '100%', opacity: 0 }),
 };
 const slideTrans = { type: 'tween', duration: 0.38, ease: 'easeInOut' };
 
@@ -35,7 +35,7 @@ const gradientTextStyle = {
   whiteSpace: 'nowrap',
   overflow: 'hidden',
   WebkitMaskImage: 'linear-gradient(to right, white 55%, transparent 95%)',
-  maskImage:        'linear-gradient(to right, white 55%, transparent 95%)',
+  maskImage: 'linear-gradient(to right, white 55%, transparent 95%)',
   width: '100%',
 };
 
@@ -57,17 +57,17 @@ function AnimatedStat({ target, suffix, label, isLast }) {
   return (
     <div ref={ref} style={{
       textAlign: 'center', flex: 1,
-      padding: '27px 0px',
+      padding: '6px 8px',
       display: 'flex', flexDirection: 'column',
       alignItems: 'center', justifyContent: 'center',
     }}>
       <div style={{
-        fontSize: 44, fontFamily: 'Inter, sans-serif',
+        fontSize: 'clamp(26px, 5vw, 44px)', fontFamily: 'Inter, sans-serif',
         fontWeight: 700, color: '#fff', lineHeight: 'normal', whiteSpace: 'nowrap',
       }}>
         {display}<span style={{ color: '#AAFF00' }}>{suffix}</span>
       </div>
-      <p style={{ fontSize: 22, fontFamily: 'Inter, sans-serif', color: '#B0B0B0', marginTop: 8, lineHeight: '22px', letterSpacing: '-0.44px', fontWeight: 400 }}>
+      <p style={{ fontSize: 'clamp(13px, 2.5vw, 22px)', fontFamily: 'Inter, sans-serif', color: '#B0B0B0', marginTop: 8, lineHeight: 1.3, letterSpacing: '-0.44px', fontWeight: 400, textAlign: 'center' }}>
         {label}
       </p>
     </div>
@@ -118,8 +118,8 @@ function InstagramCarousel({ sharedIdx, direction, onPrev, onNext, setDotIdx }) 
   return (
     <>
       {/* Arrows — sit on card edges */}
-      <ArrowBtn onClick={onPrev} dir="left"  label="Previous" style={{ position: 'absolute', left: 12, top: 212, zIndex: 10 }} />
-      <ArrowBtn onClick={onNext} dir="right" label="Next"     style={{ position: 'absolute', right: 12, top: 212, zIndex: 10 }} />
+      <ArrowBtn onClick={onPrev} dir="left" label="Previous" style={{ position: 'absolute', left: 12, top: '50%', transform: 'translateY(-50%)', zIndex: 10 }} />
+      <ArrowBtn onClick={onNext} dir="right" label="Next" style={{ position: 'absolute', right: 12, top: '50%', transform: 'translateY(-50%)', zIndex: 10 }} />
 
       {/* Animated slide */}
       <div style={{ width: '100%', overflow: 'hidden', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
@@ -136,7 +136,7 @@ function InstagramCarousel({ sharedIdx, direction, onPrev, onNext, setDotIdx }) 
           >
             {/* Avatar */}
             <div style={{
-              width: 175, height: 175,
+              width: 130, height: 130,
               borderRadius: acc.isLogo ? 24 : '50%',
               overflow: 'hidden',
               marginBottom: 18,
@@ -156,22 +156,34 @@ function InstagramCarousel({ sharedIdx, direction, onPrev, onNext, setDotIdx }) 
               />
             </div>
 
-            {/* Account name — single line + gradient fade */}
+            {/* Account name */}
             <p style={{
-              ...gradientTextStyle,
-              fontSize: 55, fontFamily: 'Inter, sans-serif', fontWeight: 700,
-              color: '#fff', lineHeight: '66px', marginBottom: 10,
-              textAlign: 'left', paddingLeft: 8,
+              fontSize: 'clamp(26px, 3.5vw, 36px)',
+              fontFamily: 'Inter, sans-serif',
+              fontWeight: 700,
+              color: '#fff',
+              lineHeight: '1.2',
+              marginBottom: 10,
+              textAlign: 'center',
+              width: '100%',
+              paddingLeft: 16,
+              paddingRight: 16,
+              wordBreak: 'break-word',
               letterSpacing: 'normal'
             }}>
               {acc.displayName}
             </p>
 
             <p style={{
-              ...gradientTextStyle,
-              fontSize: 30, fontFamily: 'Inter, sans-serif', fontWeight: 700,
-              color: '#fff', paddingLeft: 8,
-              lineHeight: '36px',
+              fontSize: 'clamp(18px, 2.5vw, 22px)',
+              fontFamily: 'Inter, sans-serif',
+              fontWeight: 700,
+              color: '#fff',
+              textAlign: 'center',
+              width: '100%',
+              paddingLeft: 16,
+              paddingRight: 16,
+              lineHeight: '1.3',
               letterSpacing: 'normal'
             }}>
               {acc.followers} {acc.followerLabel.toLowerCase()}
@@ -199,54 +211,76 @@ function YoutubeCarousel({ sharedIdx, direction, onPrev, onNext, setDotIdx }) {
 
   return (
     <>
-      {/* Account row with slide */}
-      <div style={{ width: '100%', overflow: 'hidden', position: 'relative', display: 'flex', alignItems: 'center' }}>
-        {/* Arrow outside the sliding div — Left */}
-        <ArrowBtn onClick={onPrev} dir="left" label="Previous YouTube" style={{ position: 'absolute', left: 0, top: 'calc(50% - 17px)', zIndex: 10 }} />
+      {/* Arrows — sit on card edges relative to avatar center */}
+      <ArrowBtn onClick={onPrev} dir="left" label="Previous" style={{ position: 'absolute', left: 10, top: 110, zIndex: 10 }} />
+      <ArrowBtn onClick={onNext} dir="right" label="Next" style={{ position: 'absolute', right: 10, top: 110, zIndex: 10 }} />
 
-        <div style={{ flex: 1, overflow: 'hidden' }}>
-          <AnimatePresence mode="wait" custom={direction}>
-            <motion.div
-              key={ytIdx}
-              custom={direction}
-              variants={slideVariants}
-              initial="enter"
-              animate="center"
-              exit="exit"
-              transition={slideTrans}
-              style={{ display: 'flex', alignItems: 'center', gap: 12, width: '100%' }}
-            >
-              {/* Avatar */}
-              <div style={{ width: 108, height: 108, borderRadius: '50%', overflow: 'hidden', flexShrink: 0 }}>
-                <img src={acc.avatar} alt={acc.displayName} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-              </div>
-
-              {/* Name + followers */}
-              <div style={{ flex: 1, minWidth: 0, overflow: 'hidden' }}>
-                <p style={{
-                  ...gradientTextStyle,
-                  fontSize: 22, fontFamily: 'Inter, sans-serif', fontWeight: 700,
-                  color: '#fff', lineHeight: '26.4px',
-                  letterSpacing: 'normal'
-                }}>
-                  {acc.displayName}
-                </p>
-                <p style={{
-                  ...gradientTextStyle,
-                  fontSize: 20, fontFamily: 'Inter, sans-serif', fontWeight: 700,
-                  color: '#B0B0B0', marginTop: 4,
-                  lineHeight: '24px',
-                  letterSpacing: 'normal'
-                }}>
-                  {acc.followers} {acc.followerLabel.toLowerCase()}
-              </p>
+      {/* Animated slide */}
+      <div style={{ width: '100%', overflow: 'hidden', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+        <AnimatePresence mode="wait" custom={direction}>
+          <motion.div
+            key={ytIdx}
+            custom={direction}
+            variants={slideVariants}
+            initial="enter"
+            animate="center"
+            exit="exit"
+            transition={slideTrans}
+            style={{ width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center' }}
+          >
+            {/* Avatar */}
+            <div style={{
+              width: 76, height: 76,
+              borderRadius: '50%',
+              overflow: 'hidden',
+              marginBottom: 8,
+              flexShrink: 0,
+            }}>
+              <img
+                src={acc.avatar}
+                alt={acc.displayName}
+                style={{
+                  width: '100%',
+                  height: '100%',
+                  objectFit: 'cover',
+                }}
+              />
             </div>
-            </motion.div>
-          </AnimatePresence>
-        </div>
 
-        {/* Arrow outside the sliding div — Right */}
-        <ArrowBtn onClick={onNext} dir="right" label="Next YouTube" style={{ position: 'absolute', right: 0, top: 'calc(50% - 17px)', zIndex: 10 }} />
+            {/* Account name */}
+            <p style={{
+              fontSize: 'clamp(18px, 2.5vw, 20px)',
+              fontFamily: 'Inter, sans-serif',
+              fontWeight: 700,
+              color: '#fff',
+              lineHeight: '1.2',
+              marginBottom: 4,
+              textAlign: 'center',
+              width: '100%',
+              paddingLeft: 12,
+              paddingRight: 12,
+              wordBreak: 'break-word',
+              letterSpacing: 'normal'
+            }}>
+              {acc.displayName}
+            </p>
+
+            <p style={{
+              fontSize: 'clamp(14px, 1.8vw, 16px)',
+              fontFamily: 'Inter, sans-serif',
+              fontWeight: 700,
+              color: '#B0B0B0',
+              lineHeight: '1.2',
+              textAlign: 'center',
+              width: '100%',
+              paddingLeft: 12,
+              paddingRight: 12,
+              letterSpacing: 'normal'
+            }}>
+              {acc.followers} {acc.followerLabel.toLowerCase()}
+            </p>
+          </motion.div>
+        </AnimatePresence>
       </div>
 
       {/* Button — centered */}
@@ -294,7 +328,7 @@ export default function SocialStats() {
     return () => clearInterval(t);
   }, []);
 
-  const goNext = () => { setDirection(1);  setSharedIdx(i => i + 1); };
+  const goNext = () => { setDirection(1); setSharedIdx(i => i + 1); };
   const goPrev = () => { setDirection(-1); setSharedIdx(i => i - 1); };
 
   /* Jump to dot index (for Instagram) */
@@ -347,10 +381,10 @@ export default function SocialStats() {
             transition={{ duration: 0.6 }}
             style={{
               ...cardStyle,
-              width: 407, minWidth: 407, height: 592,
+              width: 407, minWidth: 407, height: 510,
               borderRadius: 34,
               display: 'flex', flexDirection: 'column', alignItems: 'center',
-              justifyContent: 'center', position: 'relative', gap: 30,
+              justifyContent: 'center', position: 'relative', gap: 18,
               flexShrink: 0,
               overflow: 'hidden',
             }}
@@ -383,18 +417,18 @@ export default function SocialStats() {
               style={{
                 ...cardStyle,
                 width: 648, borderRadius: 23,
-                padding: '56px 20px',
+                padding: '20px 20px',
                 display: 'flex', alignItems: 'stretch',
               }}
               className="social-stats-bar"
             >
-              <AnimatedStat target={97}   suffix="%" label="Project Completion"  isLast={false} />
-              <AnimatedStat target={99}   suffix="%" label="Client Satisfaction" isLast={false} />
-              <AnimatedStat target={3000} suffix="+" label="Projects Delivered"  isLast={true}  />
+              <AnimatedStat target={97} suffix="%" label="Project Completion" isLast={false} />
+              <AnimatedStat target={99} suffix="%" label="Client Satisfaction" isLast={false} />
+              <AnimatedStat target={3000} suffix="+" label="Projects Delivered" isLast={true} />
             </motion.div>
 
             {/* YouTube + Image row */}
-            <div style={{ display: 'flex', gap: 23, textAlign:'center'  }} className="social-yt-row">
+            <div style={{ display: 'flex', gap: 23, textAlign: 'center' }} className="social-yt-row">
 
               {/* YouTube card — 312.5 × 317 */}
               <motion.div
@@ -408,8 +442,9 @@ export default function SocialStats() {
                   borderRadius: 34,
                   padding: '0px 20px',
                   display: 'flex', flexDirection: 'column', alignItems: 'center',
-                  justifyContent: 'center', gap: 20,
+                  justifyContent: 'center', gap: 14,
                   flexShrink: 0, overflow: 'hidden',
+                  position: 'relative',
                 }}
                 className="social-yt-card"
               >
