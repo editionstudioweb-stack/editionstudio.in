@@ -3,6 +3,8 @@ import './globals.css';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import PageTransition from '@/components/PageTransition';
+import { SpeedInsights } from "@vercel/speed-insights/next"
+import { Analytics } from "@vercel/analytics/next";
 
 const montserrat = Montserrat({
   subsets: ['latin'],
@@ -65,6 +67,8 @@ export default function RootLayout({ children }) {
           <PageTransition>{children}</PageTransition>
         </main>
         <Footer />
+        <SpeedInsights />
+        <Analytics />
       </body>
     </html>
   );
