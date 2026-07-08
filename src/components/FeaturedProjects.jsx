@@ -10,7 +10,7 @@ const featuredProjects = [
   { title: "Redmi",             video: "https://res.cloudinary.com/dsmuedwc4/video/upload/q_auto/f_auto/v1779786511/edit11_phfp2h.mp4" },
   { title: "Samsung",         video: "https://res.cloudinary.com/dsmuedwc4/video/upload/q_auto/f_auto/v1780659868/1_g7vbq3.mp4" },
   { title: "Red Bull",         video: "https://res.cloudinary.com/dsmuedwc4/video/upload/q_auto/f_auto/v1780664279/5_t9kmcf.mp4" },
-  { title: "project",         video: "https://res.cloudinary.com/dsmuedwc4/video/upload/q_auto/f_auto/v1780986489/7_1_c8ulok.mp4" },
+  { title: "Shikhar Dhawan ",         video: "https://res.cloudinary.com/dsmuedwc4/video/upload/q_auto/f_auto/v1780986489/7_1_c8ulok.mp4" },
 ];
 
 // Duplicate for seamless infinite loop
